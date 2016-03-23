@@ -14,6 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var txtMessage: UITextField!
     @IBOutlet weak var btnSend: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Chat"
@@ -27,13 +28,18 @@ class ChatViewController: UIViewController {
     
     
     @IBAction func sendClicked(sender: UIButton) {
+        guard let _ = txtMessage.text else {
+            return;
+        }
         let gameScore = PFObject(className:"Message_Swift_032016")
         gameScore["text"] = txtMessage.text
+        gameScore["user"] = PFUser.currentUser()
         
         gameScore.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
+                PFUser.currentUser()
                 print("Success")
             } else {
                 // There was a problem, check error.description
