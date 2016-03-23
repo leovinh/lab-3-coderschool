@@ -27,10 +27,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginClick(sender: AnyObject) {
-        PFUser.logInWithUsernameInBackground("myname", password:"mypass") {
+        PFUser.logInWithUsernameInBackground(txtEmail.text!, password:txtPassword.text!) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let chatVc = sb.instantiateViewControllerWithIdentifier("chatNav")
+                self.presentViewController(chatVc, animated: true, completion: nil);
             } else {
                 // The login failed. Check error to see why.
             }
@@ -54,8 +57,10 @@ class LoginViewController: UIViewController {
             if let error = error {
                 let errorString = error.userInfo["error"] as? NSString
                 // Show the errorString somewhere and let the user try again.
+                print(errorString)
             } else {
                 // Hooray! Let them use the app now.
+                print("Reg Done")
             }
         }
     }

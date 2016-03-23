@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -88,6 +88,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.66666666666666" y="319.5"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="ZpN-IX-AWB">
+            <objects>
+                <viewController id="hOJ-ef-wCb" customClass="ChatViewController" customModule="lab3coderschool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3qH-Lk-yjL"/>
+                        <viewControllerLayoutGuide type="bottom" id="9hY-OQ-zf6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C9g-KC-31M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hDw-Kx-DfS">
+                                <rect key="frame" x="20" y="72" width="231" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYr-6R-jLe">
+                                <rect key="frame" x="271" y="72" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendClicked:" destination="hOJ-ef-wCb" eventType="touchUpInside" id="sqU-pw-dqj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oYr-6R-jLe" firstAttribute="leading" secondItem="hDw-Kx-DfS" secondAttribute="trailing" constant="20" id="I0e-th-Kj2"/>
+                            <constraint firstItem="oYr-6R-jLe" firstAttribute="top" secondItem="3qH-Lk-yjL" secondAttribute="bottom" constant="8" id="XgS-FF-qBM"/>
+                            <constraint firstAttribute="trailing" secondItem="oYr-6R-jLe" secondAttribute="trailing" constant="13" id="Zia-8N-uFO"/>
+                            <constraint firstItem="hDw-Kx-DfS" firstAttribute="top" secondItem="3qH-Lk-yjL" secondAttribute="bottom" constant="8" id="sJv-qb-pxX"/>
+                            <constraint firstItem="hDw-Kx-DfS" firstAttribute="leading" secondItem="C9g-KC-31M" secondAttribute="leading" constant="20" id="xBK-Zx-gBv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6BN-bM-5lw"/>
+                    <connections>
+                        <outlet property="btnSend" destination="oYr-6R-jLe" id="f7y-7A-Mcd"/>
+                        <outlet property="txtMessage" destination="hDw-Kx-DfS" id="L9K-4C-mJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3r-Vh-9qj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="319"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i9a-YR-2op">
+            <objects>
+                <navigationController storyboardIdentifier="chatNav" automaticallyAdjustsScrollViewInsets="NO" id="wzg-Vc-LBM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zh8-Sj-bJI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hOJ-ef-wCb" kind="relationship" relationship="rootViewController" id="2Pv-sm-dAL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFY-DT-dSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="319"/>
         </scene>
     </scenes>
 </document>
